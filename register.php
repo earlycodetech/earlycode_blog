@@ -1,3 +1,6 @@
+<?php
+    require_once "assets/modules/sessions.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +17,9 @@
 <body>
     <!-- Navbar -->
     <?php require_once "assets/modules/navbar.php"; ?>
-
     <section>
         <div class="container mt-5">
+            <?php echo errorMsg(); echo successMsg(); ?>
             <div class="card mx-auto shadow" style="max-width: 600px">
                 <div class="card-body">
                     <h2 class="text-center">Register with us</h2>
