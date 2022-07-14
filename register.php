@@ -312,6 +312,9 @@
                     </div>
                  </form>
                 </div>
+                <div class="text-center py-3">
+                <small>Already have an account? <a href="login" class="nav-link p-0 d-inline">Log in</a></small>
+                </div>
             </div>
         </div>
     </section>

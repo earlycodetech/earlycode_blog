@@ -28,3 +28,9 @@
              return $output;
          }     
     }
+
+    function auth(){
+        if (!isset($_SESSION['id'])) {
+            header("Location: ../login");
+        }
+    }
