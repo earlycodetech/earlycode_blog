@@ -7,3 +7,13 @@
 </footer>
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/scripts.js"></script>
+
+<script>
+    const alertMsg = document.querySelector('#alertMsg');
+
+    if(alertMsg){
+        setTimeout(()=>{
+            alertMsg.classList.add("animate__fadeOut")
+        },2500)
+    }
+</script>
