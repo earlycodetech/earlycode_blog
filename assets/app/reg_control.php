@@ -21,6 +21,7 @@
          $country = $_POST['country']; 
          $password = $_POST['pass']; 
          $conPass = $_POST['conPass']; 
+         $role = "user";
          $date = date("Y-m-d");
 
             $sql = "SELECT * FROM users WHERE email = ?";
@@ -52,14 +53,14 @@
             $password = password_hash($password, PASSWORD_DEFAULT);
 
             // Write the statement;
-            $sql = "INSERT INTO users(full_name,email,phone,gender,dob,country,user_password,date_created) VALUES(?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO users(full_name,email,phone,gender,dob,country,user_password,user_role,date_created) VALUES(?,?,?,?,?,?,?,?,?)";
 
             // Initialize connection to database
             $stmt = mysqli_stmt_init($connectDB);
             // Prepare Statement
             mysqli_stmt_prepare($stmt,$sql);
             // Bind Parameters 
-            mysqli_stmt_bind_param($stmt,"ssssssss",$fname,$email,$phone,$gender,$dob,$country,$password,$date);
+            mysqli_stmt_bind_param($stmt,"sssssssss",$fname,$email,$phone,$gender,$dob,$country,$password,$role,$date);
 
             $execute = mysqli_stmt_execute($stmt);
             if ($execute) {

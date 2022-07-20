@@ -40,9 +40,9 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link" href="project">
-                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                                Projects
+                            <a class="nav-link" href="new-post">
+                                <div class="sb-nav-link-icon"><i class="fas fa-scroll"></i></div>
+                                New Post
                             </a>
                             <a class="nav-link" href="equipment">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tractor"></i></div>

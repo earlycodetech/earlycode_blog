@@ -33,8 +33,20 @@
            }else{
             // When password is correct
             $_SESSION['id'] = $row['id'];
+            $_SESSION['role'] = $row['user_role'];
             $_SESSION['success_msg'] = "Login Successful, Welcome ".$row['full_name'];
-            header("Location: ../../users/dashboard");
+            switch ($_SESSION['role']) {
+                case 'admin':
+                    header("Location:../../secure/dashboard");
+                    break;
+                case 'user':
+                    header("Location:../../users/dashboard");
+                    break;
+                
+                default:
+                header("Location:../../register");
+                    break;
+            }
            }
        }
     }
