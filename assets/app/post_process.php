@@ -60,6 +60,18 @@ if (isset($_POST['addNewPost'])) {
         header("Location: ../../users/new-post");
     }
 }
+elseif(isset($_GET['confirmPost'])){
+    $id = $_GET['confirmPost'];
+    $sql = "UPDATE tbl_posts SET post_status = '1' WHERE post_id = '$id'";
+    $query = mysqli_query($connectDB,$sql);
+    if ($query) {
+        $_SESSION['success_msg'] = "Post has been verified successfully!";
+        header("Location: ".$_SERVER['HTTP_REFERER']);
+    }else{
+        $_SESSION['error_msg'] = "Post verification failed!";
+        header("Location: ".$_SERVER['HTTP_REFERER']);
+    }
+}
 
 
 // Main Else
