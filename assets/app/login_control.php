@@ -40,7 +40,7 @@
                     header("Location:../../secure/dashboard");
                     break;
                 case 'user':
-                    header("Location:../../users/dashboard");
+                    header("Location:../../index");
                     break;
                 
                 default:

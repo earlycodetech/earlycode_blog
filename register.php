@@ -1,4 +1,5 @@
 <?php
+    require_once "assets/app/db_con.php";
     require_once "assets/modules/sessions.php";
 ?>
 <!DOCTYPE html>

@@ -10,7 +10,7 @@ if (isset($_POST['addNewPost'])) {
     $postId = str_shuffle($postId);
     $postId = substr($postId, 1, 9);
     $title = $_POST['title'];
-    $article = addslashes($_POST['article']);
+    $article = $_POST['article'];
 
     $file = $_FILES['image'];
     $fileName = $file['name'];
@@ -69,6 +69,45 @@ elseif(isset($_GET['confirmPost'])){
         header("Location: ".$_SERVER['HTTP_REFERER']);
     }else{
         $_SESSION['error_msg'] = "Post verification failed!";
+        header("Location: ".$_SERVER['HTTP_REFERER']);
+    }
+}
+elseif (isset($_POST['addComment'])) {
+    if (!isset($_SESSION['id'])) {
+        $_SESSION['error_msg'] = "Please Login to add a comment";
+        header("Location: ".$_SERVER['HTTP_REFERER']);
+    }else{
+
+        // Collect data
+        $postId = $_POST['postId'];
+        $uid = $_SESSION['id'];
+        $comment = addslashes($_POST['comment']);
+
+        $sql = "INSERT INTO tbl_comments(post_id,userid,comment) VALUES(?,?,?)";
+        $stmt = mysqli_stmt_init($connectDB);
+        mysqli_stmt_prepare($stmt, $sql);
+        mysqli_stmt_bind_param($stmt, "sss", $postId, $uid, $comment);
+        $execute = mysqli_stmt_execute($stmt);
+        if ($execute) {
+            $_SESSION['success_msg'] = "Comment added!";
+            header("Location: ".$_SERVER['HTTP_REFERER']);
+        } else {
+            $_SESSION['error_msg'] = "Comment failed";
+            header("Location: ".$_SERVER['HTTP_REFERER']);
+        }
+    }
+    
+}
+elseif (isset($_GET['delComment'])) {
+    $del = $_GET['delComment'];
+    $sql = "DELETE FROM tbl_comments WHERE id = '$del'";
+    $query = mysqli_query($connectDB,$sql);
+
+    if ($query) {
+        $_SESSION['success_msg'] = "Comment deleted!";
+        header("Location: ".$_SERVER['HTTP_REFERER']);
+    } else {
+        $_SESSION['error_msg'] = "Delete failed";
         header("Location: ".$_SERVER['HTTP_REFERER']);
     }
 }

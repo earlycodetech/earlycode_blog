@@ -44,6 +44,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-scroll"></i></div>
                                 New Post
                             </a>
+                            <a class="nav-link" href="../index">
+                                <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                                Home
+                            </a>
                             <a class="nav-link" href="equipment">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tractor"></i></div>
                                 Equipments

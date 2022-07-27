@@ -39,3 +39,11 @@
             header("Location: ../login");
         }
     }
+
+    function getValue($connect,$select,$table,$column,$value){
+        $sql = "SELECT $select FROM $table WHERE $column = '$value'";
+        $query = mysqli_query($connect,$sql);
+        $array = mysqli_fetch_assoc($query);
+    
+        return $array;
+    }
