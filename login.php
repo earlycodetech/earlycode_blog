@@ -43,7 +43,7 @@
                 <small>Create an account? <a href="register" class="nav-link p-0 d-inline">Register</a></small>
                 </div>
                 <div class="text-center pb-3">
-                <small>Forgot your Password? <a href="password" class="nav-link p-0 d-inline">Reset</a></small>
+                <small>Forgot your Password? <a href="forgot-password" class="nav-link p-0 d-inline">Reset</a></small>
                 </div>
             </div>
         </div>

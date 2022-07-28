@@ -1,4 +1,11 @@
 <?php
+    #Online Connection
+    // $server = "localhost";
+    // $dbusername = "u162278070_early";
+    // $dbpassword = "v?1m62/Me"; 
+    // $dbname = "u162278070_early";
+
+    #local Connection
     $server = "localhost";
     $dbusername = "root";
     $dbpassword = ""; 
